@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectPlayerComponent } from './select-player.component';
+import { SelectPlayerComponent } from './select-hero-player.component';
 
 describe('SelectPlayerComponent', () => {
   let component: SelectPlayerComponent;

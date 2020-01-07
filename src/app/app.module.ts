@@ -4,21 +4,24 @@ import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { SelectPlayerComponent } from './views/select-player/select-player.component';
+import { SelectPlayerComponent } from './heroes/select-hero-player/select-hero-player.component';
 import { TttFieldComponent } from './views/ttt-field/ttt-field.component';
-import { MarvelApiService } from './services/marvel-api.service';
-import { HttpMarvelInterceptor } from './interceptors/http-marvel-interceptor';
+import { MarvelApiService } from './shared/services/marvel-api.service';
+import { HttpMarvelInterceptor } from './heroes/interceptors/http-marvel.interceptor';
+import { AppRoutingModule } from './app.routing.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SelectPlayerComponent,
     TttFieldComponent
   ],
   imports: [
     BrowserModule, 
     CommonModule,
     HttpClientModule,
+    AppRoutingModule,
+    HeroesModule
   ],
   providers: [
     MarvelApiService,

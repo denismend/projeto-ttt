@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MarvelApiService } from './services/marvel-api.service';
+import { MarvelApiService } from './shared/services/marvel-api.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getCharacter('').subscribe(res => {
+    this.service.getCharacter('spider').subscribe(res => {
       console.log(res);
     })
   }

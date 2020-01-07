@@ -1,10 +1,11 @@
-import { tap, catchError, switchMap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+import { config } from '../../core/config/config';
 
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 
-import { Router } from "@angular/router";
 import { Injectable } from "@angular/core";
+import { Md5Hasher } from '../../core/utils/md5-hasher';
 
 const login = '/login';
 const loginRefresh = '/login/refresh';
@@ -29,11 +30,13 @@ export class HttpMarvelInterceptor implements HttpInterceptor {
      * @param request 
      */
     private addHeaderToken(request: HttpRequest<any>): HttpRequest<any> {
+        let dateString: string = new Date().toDateString();
+        let hash: string = `${dateString}${config.marvel.api.privateKey}${config.marvel.api.publicKey}`
          request = request.clone({
                 setParams: {
-                    'ts': '1578343276',
-                    'apikey': 'f32ac1b0df64265ee51b6a0148bf98c1',
-                    'hash': 'b63d05cb853a66e0c8b97a5ea3d1fb2e',
+                    'ts': new Date().toDateString(),
+                    'apikey': config.marvel.api.publicKey,
+                    'hash': Md5Hasher.hashString(hash),
                    // ...request.params
                 }
             });

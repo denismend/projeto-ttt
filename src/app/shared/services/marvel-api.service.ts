@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -7,7 +7,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MarvelApiService {
 
-  private URL = 'https://gateway.marvel.com:443/v1/public';
+  private player1: BehaviorSubject<any>;
+  private player2: BehaviorSubject<any>;
+
+  private URL = 'https://gateway.marvel.com/v1/public';
 
   constructor(private _http: HttpClient) {
 
@@ -15,7 +18,7 @@ export class MarvelApiService {
 
   public getCharacter(name: string):Observable<any> {
     let _uri = `${this.URL}/characters`; 
-    return this._http.get<any>(_uri);
+    return this._http.get<any>(_uri, {params: {'nameStartsWith': name}});
   }
   
 }
