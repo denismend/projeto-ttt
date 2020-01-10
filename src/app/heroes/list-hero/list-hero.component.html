@@ -1,18 +1,20 @@
-<p class="text-center text-muted" *ngIf="!heroes.length"> 
+<p class="text-center text-muted" *ngIf="!heroes.length">
   Sorry, no heroes
 </p>
 
-<ol class="list-unstyled">
+
+<ol class="text-center list-unstyled">
   <li *ngFor="let cols of rows" class="row no-gutters p-0">
-      <div *ngFor="let hero of cols" class="col-4" apDarkenOnHover>
-          <a (click)="">
-              <ap-card>
-                  <ap-photo 
-                      [url]="photo.url" 
-                      [description]="photo.description">
-                  </ap-photo>            
-              </ap-card>
-          </a>
-      </div>
+
+
+    <div *ngFor="let hero of cols" class="col-3" apDarkenOnHover>
+      <a (click)="selectHero.emit(hero)">
+        <tttm-card>
+          <tttm-hero-photo [url]="hero.thumbnail.path" [description]="hero.name">
+          </tttm-hero-photo>
+          <p>{{hero.name}}</p>
+        </tttm-card>
+      </a>
+    </div>
   </li>
 </ol>

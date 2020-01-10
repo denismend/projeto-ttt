@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SelectPlayerComponent } from './heroes/select-hero-player/select-hero-player.component';
+import { GameTttComponent } from './game-ttt/game-ttt.component';
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'player',
+        redirectTo: 'game',
     },
     { 
-        path: 'newgame',
-        component: SelectPlayerComponent,
+        path: 'game',
+        component: GameTttComponent,
     },
     { 
         path: '**', 
-        redirectTo: 'newgame'
+        redirectTo: 'game'
     }  
 ];
 

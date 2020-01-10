@@ -1,8 +1,8 @@
-<br><br><br>
-<div class="container">
-  <app-search-hero (onTyping)="filter = $event" [value]="filter"></app-search-hero>
-</div>
+<br>
+
+<ttt-app-search-hero (heroesListEmitter)="heroes = $event"></ttt-app-search-hero>
 
 <tttm-list-hero
-    [heroes]="heroes">
+  [heroes]="heroes"
+  (selectHero)="selectHeroEmitterFunc.emit($event)">
 </tttm-list-hero>

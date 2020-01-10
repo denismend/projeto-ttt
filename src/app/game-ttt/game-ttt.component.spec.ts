@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TttFieldComponent } from './ttt-field.component';
+import { GameTttComponent } from './game-ttt.component';
 
-describe('TttFieldComponent', () => {
-  let component: TttFieldComponent;
-  let fixture: ComponentFixture<TttFieldComponent>;
+describe('GameTttComponent', () => {
+  let component: GameTttComponent;
+  let fixture: ComponentFixture<GameTttComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TttFieldComponent ]
+      declarations: [ GameTttComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TttFieldComponent);
+    fixture = TestBed.createComponent(GameTttComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

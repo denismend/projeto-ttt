@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+
+      <div *ngIf="status === 'sp1'">
+        <h2>Escolha o 1° herói:</h2>
+        <ttt-select-player
+          (selectHeroEmitterFunc)="selectPlayer1($event)"
+        ></ttt-select-player>
+      </div>
+      <div *ngIf="status === 'sp2'">
+        <h2>Escolha o 2° herói:</h2>
+        <ttt-select-player
+          (selectHeroEmitterFunc)="selectPlayer2($event)"
+        ></ttt-select-player>
+      </div>
+
+    </div>
+
+  </div>
+</div>

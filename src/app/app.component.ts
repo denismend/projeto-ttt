@@ -14,8 +14,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getCharacter('spider').subscribe(res => {
-      console.log(res);
-    })
   }
 }
