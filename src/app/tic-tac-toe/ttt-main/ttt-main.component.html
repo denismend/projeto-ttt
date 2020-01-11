@@ -1,6 +1,7 @@
 
 <ttt-score [player1]="player1" [player2]="player2"></ttt-score>
 
+<h4 *ngIf="!winner && !draw" class="current-player">Turno: <span [innerHTML]="currentPlayerLabel"> </span><span class="title-block"></span></h4>
 <h4 *ngIf="winner">Parabéns, {{winnerName}} ganhou!<span class="title-block"></span></h4>
 <h4 *ngIf="draw">Empate!! <span class="title-block"></span></h4>
 <div class="row">
