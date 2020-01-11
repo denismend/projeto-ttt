@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameTttComponent } from './game-ttt.component';
 import { HeroesModule } from '../heroes/heroes.module';
+import { TicTacToeModule } from '../tic-tac-toe/tic-tac-toe.module';
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import { HeroesModule } from '../heroes/heroes.module';
     ],
     imports: [ 
         CommonModule,
-        HeroesModule
+        HeroesModule,
+        TicTacToeModule
     ],
 })
 export class GameTttModule {}

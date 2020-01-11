@@ -8,8 +8,8 @@ import { Hero } from 'src/app/heroes/hero';
 })
 export class MarvelApiService {
 
-  private player1: BehaviorSubject<any>;
-  private player2: BehaviorSubject<any>;
+  private player1 = new BehaviorSubject<Hero>(null);
+  private player2 = new BehaviorSubject<Hero>(null);
 
   private URL = 'https://gateway.marvel.com/v1/public';
 

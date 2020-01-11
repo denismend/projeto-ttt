@@ -6,6 +6,8 @@ import { DarkenOnHoverModule } from '../shared/directives/darken-on-hover/darken
 import { CardModule } from '../shared/components/card/card.module';
 import { PhotoHeroComponent } from './photo-hero/photo-hero.component';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { LoaderModule } from '../shared/components/loader/loader.module';
 
 @NgModule({
     declarations: [
@@ -16,11 +18,14 @@ import { CommonModule } from '@angular/common';
     ],
     imports: [ 
         CommonModule,
+        FormsModule,
         DarkenOnHoverModule, 
-        CardModule
+        CardModule,
+        LoaderModule,
     ],
     exports: [
-        SelectPlayerComponent
+        SelectPlayerComponent,
+        PhotoHeroComponent
     ]
 })
 export class HeroesModule {}

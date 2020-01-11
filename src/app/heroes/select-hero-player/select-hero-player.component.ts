@@ -9,6 +9,8 @@ import { Hero } from '../hero';
 export class SelectPlayerComponent implements OnInit {
 
   public heroes: Hero[] = [];
+  public searching = false;
+
   @Output() selectHeroEmitterFunc: EventEmitter<any> = new EventEmitter();
   
   constructor(
@@ -17,5 +19,10 @@ export class SelectPlayerComponent implements OnInit {
   ngOnInit(): void {
       
   }
+
+  searchingUpdating ($searching: boolean) {
+    this.searching = $searching;
+}
+
   
 }

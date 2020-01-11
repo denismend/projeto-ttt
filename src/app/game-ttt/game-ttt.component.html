@@ -4,18 +4,19 @@
 
       <div *ngIf="status === 'sp1'">
         <h2>Escolha o 1° herói:</h2>
-        <ttt-select-player
-          (selectHeroEmitterFunc)="selectPlayer1($event)"
-        ></ttt-select-player>
+        <ttt-select-player (selectHeroEmitterFunc)="selectPlayer1($event)"></ttt-select-player>
       </div>
       <div *ngIf="status === 'sp2'">
         <h2>Escolha o 2° herói:</h2>
-        <ttt-select-player
-          (selectHeroEmitterFunc)="selectPlayer2($event)"
-        ></ttt-select-player>
+        <ttt-select-player (selectHeroEmitterFunc)="selectPlayer2($event)"></ttt-select-player>
       </div>
 
     </div>
 
   </div>
+
+</div>
+
+<div class="tic-tac-toe" *ngIf="status === 'startGame'">
+  <ttt-main (restartGameEmitter)="restartGame($event)"></ttt-main>
 </div>

@@ -1,6 +1,11 @@
-<br>
+<ttt-app-search-hero 
+  (heroesListEmitter)="heroes = $event"
+  (loaderEmitter)="searchingUpdating($event)">
+</ttt-app-search-hero>
 
-<ttt-app-search-hero (heroesListEmitter)="heroes = $event"></ttt-app-search-hero>
+<div *ngIf="searching && heroes.length == 0">
+  <ttt-loader></ttt-loader>
+</div>
 
 <tttm-list-hero
   [heroes]="heroes"

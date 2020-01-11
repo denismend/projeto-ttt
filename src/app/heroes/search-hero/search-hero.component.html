@@ -6,7 +6,8 @@
           type="search" 
           placeholder="search..." 
           autofocus
-          (keyup)="debounce.next($event.target.value)"
-          [value]="value">
+          [(ngModel)]="value"
+          [ngModelOptions]="{standalone: true}"
+          (ngModelChange)="debounce.next($event)">
   </form>
 </div>

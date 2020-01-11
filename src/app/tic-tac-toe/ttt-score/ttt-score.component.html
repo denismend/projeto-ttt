@@ -1,0 +1,16 @@
+<div class="row" style="flex-wrap: initial !important">
+  <div class="col-5">
+    <tttm-hero-photo [url]="player1.thumbnail.path" [description]="player1.name">
+    </tttm-hero-photo>
+    <img style="width: 40px;" src="/../../assets/images/ic_X.svg" alt="X">
+    <h5>Vitórias: {{player1.victories}}</h5>
+  </div>
+
+  <div class="col-5">
+    <tttm-hero-photo [url]="player2.thumbnail.path" [description]="player2.name">
+    </tttm-hero-photo>
+    <img style="width: 40px;" src="/../../assets/images/ic_O.svg" alt="O">
+    <h5>Vitórias: {{player2.victories}}</h5>
+  </div>
+
+</div>

@@ -11,8 +11,9 @@ import { MarvelApiService } from 'src/app/shared/services/marvel-api.service';
 })
 export class SearchHeroComponent implements OnInit {
     
-    //@Output() onTyping = new EventEmitter<string>();
     @Output() heroesListEmitter = new EventEmitter<Hero[]>();
+    @Output() loaderEmitter: EventEmitter<boolean> = new EventEmitter();
+
     public value: string = '';
     debounce: Subject<string> = new Subject<string>();
 
@@ -25,18 +26,21 @@ export class SearchHeroComponent implements OnInit {
             debounceTime(400),
             tap(this.hasLenght),
             filter((heroName: string) => heroName.length > 1),
+            tap(this.startLoader),
             switchMap(value => this.marvelAPIService.getCharacter(value))
         )
         .subscribe(data => {
+            this.loaderEmitter.emit(false);
             console.log('result debounce');
             this.heroesListEmitter.emit(data.data.results)},
-            err => this.heroesListEmitter.emit([])
+            (err) => {
+                console.log(err);
+                this.heroesListEmitter.emit([]); 
+                this.loaderEmitter.emit(false);
+            }
         );
     } 
 
-    /**
-        * Check the length of heroName string in input field
-    */
     private hasLenght = (heroName: string): void => {
         if (heroName.length < 1)  {
             this.heroesListEmitter.emit([]);
@@ -46,5 +50,10 @@ export class SearchHeroComponent implements OnInit {
     ngOnDestroy(): void {
         console.log('destroy');
         this.debounce.unsubscribe();
+    }
+
+    private startLoader = (): void => {
+        this.loaderEmitter.emit(true);
+        this.heroesListEmitter.emit([]);
     }
  }

@@ -26,4 +26,11 @@ export class GameTttComponent implements OnInit {
     this.status = 'startGame';
     this._marvelApiService.setPlayer2(hero);
   }
+
+  restartGame() {
+    this._marvelApiService.setPlayer1(null);
+    this._marvelApiService.setPlayer2(null);
+
+    this.status = 'sp1';
+  }
 }

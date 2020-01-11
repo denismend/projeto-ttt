@@ -3,5 +3,7 @@ export interface Hero {
     thumbnail: {
         path: string;
         extension: string;
-    }
+    },
+    value: boolean; // true X, false = O
+    victories: number;
 }
